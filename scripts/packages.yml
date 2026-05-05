@@ -1,0 +1,25 @@
+# packages.yml
+# List of packages to install
+#
+# CAUTION:
+#   Do not run this script with untrusted `packages.yml`.
+#   Always review the file or run in a sandbox/container.
+#
+
+options:
+  windows:
+    priority: [winget, choco, winscoop, scoop]
+    commands:
+      winget: winget install --id {id} -e --accept-package-agreements --accept-source-agreements
+      choco: choco install {id} -y
+      winscoop: scoop install {id}
+      scoop: scoop install {id}
+
+  linux:
+    priority: [apt, linuxscoop, scoop]
+    commands:
+      apt: sudo apt install -y {id}
+      linuxscoop: scoop install {id}
+      scoop: scoop install {id}
+
+packages:
