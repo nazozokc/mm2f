@@ -70,7 +70,7 @@ options:
 
   # Same as above, but for Linux.
   linux:
-    priority: [apt, linuxscoop, scoop]
+    priority: [apt, linuxscoop, scoop, pacman]
     commands:
       apt: sudo apt install -y {id}
       scoop: scoop install {id}
