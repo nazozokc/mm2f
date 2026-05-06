@@ -57,7 +57,11 @@ for pm in "${priority[@]}"; do
         available_priority+=("$pm")
     fi
 done
-[ ${#available_priority[@]} -eq 0 ] && available_priority=("${priority[@]}")
+if [ ${#available_priority[@]} -eq 0 ]; then
+    echo -e "\033[1;31mNo available package managers found.\033[0m"
+    echo -e "\033[1;31mConfigured priority: ${priority[*]}\033[0m"
+    exit 1
+fi
 
 len=$(yq '.packages | length' "$YAML")
 
