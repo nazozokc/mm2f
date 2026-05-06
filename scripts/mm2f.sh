@@ -106,7 +106,7 @@ for ((i=0; i<len; i++)); do
     fi
 
     template=$(yq -r ".options.linux.commands.$selected_pm" "$YAML")
-    if [ -z "$template" ]; then
+    if [ -z "$template" ] || [ "$template" = "null" ]; then
         template=$(get_default_command "$selected_pm")
     fi
 
