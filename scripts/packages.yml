@@ -21,6 +21,6 @@ options:
       apt: sudo apt install -y {id}
       linuxscoop: scoop install {id}
       scoop: scoop install {id}
-      pacman: sudo pacman -S
+      pacman: sudo pacman -S --noconfirm {id}
 
 packages:
